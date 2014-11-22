@@ -11,7 +11,34 @@
 |
 */
 
+/*
+* test
+*/
 Route::get('/', function()
 {
 	return View::make('hello');
+});
+
+/*
+* root
+*/
+// Route::get('/', [
+// 	'as' => 'home',
+// 	'uses' => 'HomeController@index'
+// 	]);
+Route::get('test/connect', [
+	'as' => 'testConnect',
+	'uses' => 'TestController@connect'
+	]);
+
+
+Route::get('/test', function() {
+	$user = new User;
+	$user->email = "test@test.com";
+	$user->real_name = "Test account";
+	$user->password = "test";
+
+	$user->save();
+
+	return "The test user has been saved to database";
 });
