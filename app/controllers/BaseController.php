@@ -33,6 +33,28 @@ class BaseController extends Controller {
 	    "timeZone": "-480"
 	}';
 
+	protected $verifyOrderBody = '{
+            	"requestContext": {"shipTo": "0000863349",
+            	"timeZone": "-480","langCode" : "en" },
+            	"appleCareSalesDate": "15/11/14",
+            	"pocLanguage" : "ENG",
+            	"pocDeliveryPreference":"E",
+            	"purchaseOrderNumber": "TZ0001",
+            	"marketID":"","overridePocFlag": "",
+            	"emailFlag": "1",
+            	"customerRequest": {"customerFirstName": "Jin",
+            	"customerLastName": "Yang",
+            	"companyName": "","customerEmailId": "123@qq.com","addressLine1": "",
+            	"addressLine2": "","city": "","stateCode": "",
+            	"countryCode": "","primaryPhoneNumber": "",
+            	"zipCode": ""},
+            	"deviceRequest": [{
+            	"deviceId": "DLXM2417DFJ3",
+            	"secondarySerialNumber": "",
+            	"hardwareDateOfPurchase": "15/11/14"}]
+	}';
+
+
 	/**
 	 *@return array
 	 */
