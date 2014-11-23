@@ -42,3 +42,7 @@ Route::get('/test', function() {
 
 	return "The test user has been saved to database";
 });
+
+// Route::get('cert/file.crt.pem', function() {
+
+// });

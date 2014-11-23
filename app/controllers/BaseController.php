@@ -19,9 +19,13 @@ class BaseController extends Controller {
 	 * Class variable used for API connection
 	 */
 	// the json format information, http://php.net/manual/zh/book.json.php
-	public $hello = "hello from BaseController";
-	public function getHello() {return "hello function from BaseController";}
-	public $authenticateRequestBody = '{ 
+	// protected $hello = "hello from BaseController";
+	// protected function getHello() {return "hello function from BaseController";}
+
+	/**
+	 *@return string in JSON format
+	 */
+	protected $authenticateRequestBody = '{ 
 	    "userId": "acc_test+newvision1@apple.com",
 	    "password": "Apple1234", 
 	    "shipTo": "0000863349", 
@@ -29,7 +33,10 @@ class BaseController extends Controller {
 	    "timeZone": "-480"
 	}';
 
-	public $sandboxService = [
+	/**
+	 *@return array
+	 */
+	protected $sandboxService = [
 	    "authenticate"=>"https://grxuat-nwk.apple.com/sandbox/authentication-service/1.0/authenticate/",
 	    "verifyOrder"=>"https://grxuat-nwk.apple.com/sandbox/order-service/1.0/verify-order/",
 	    "createOrder"=>"https://grxuat-nwk.apple.com/sandbox/order-service/1.0/create-order/",
@@ -37,7 +44,10 @@ class BaseController extends Controller {
 	];
 
 	// the use of API is @see ACC Implementation Manual V2.0.pdf:: page 45
-	public $jointUATAPI = [
+	/**
+	 *@return array
+	 */
+	protected $jointUATAPI = [
 	    "apiDoc"=>"https://gsxwsut.apple.com/apidocs/acc/uat/html/WSReference.html?user=reseller", // UAT API doc
 	    "authenticate"=>"https://api-acc-ept.apple.com/authentication-service/1.0/authenticate/",
 	    "verifyOrder"=>"https://api-acc-ept.apple.com/order-service/1.0/verify-order/",
@@ -47,8 +57,11 @@ class BaseController extends Controller {
 	];
 
 	// $url = "https://api-acc-ept.apple.com/authentication-service/1.0/authenticate/";
-	public $cert_file = "./file.crt.pem";
-	public $key_file = "./file.key.pem";
-	public $cert_password = "newvision12345a";
-	public $key_password = "newvision12345a";
+	/**
+	 *@return array
+	 */
+	protected $cert_file = "cert/file.crt.pem"; // The location of the file related to /public/,  I put it as an asset - URL::asset('cert/file.crt.pem'); to use it in controller
+	protected $key_file = "cert/file.key.pem"; // I put it as an asset
+	protected $cert_password = "newvision12345a";
+	protected $key_password = "newvision12345a";
 }
