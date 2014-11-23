@@ -44,5 +44,11 @@ Route::get('/test', function() {
 });
 
 // Route::get('cert/file.crt.pem', function() {
-
 // });
+
+// Route::(order/verify)
+// Route::(order/create)
+// Route::(order/cancell)
+// use RESTful controller
+Route::controller('order', 'OrderController');
+
