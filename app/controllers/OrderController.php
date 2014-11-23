@@ -34,27 +34,44 @@ class OrderController extends BaseController {
  //            	"secondarySerialNumber": "",
  //            	"hardwareDateOfPurchase": "15/11/14"}]
 	// }';
-// Non-RESTful
+// Non-RESTful route
 
 	public function showWelcome()
 	{
 		return View::make('hello');
 	}
-	private function connect() {}
+	// private function connect() {}
 	private function arrayToJSON() {}
 	private function JSONToArray() {}
 
-// Route::(order/verify)
-// Route::(order/create)
-// Route::(order/cancell)
-	public function getVerify(){}
+// RESTful route
+	public function getIndex() 
+	{
+		// return "The index.";
+		return View::make('orders.index');
+	}
+
+
+	// Route::(order/verify)
+	public function getVerify()
+	{
+		return View::make('orders.verify');
+	}
 	public function postVerify(){}
 
-	public function getCreate(){}
-	public function postCreate(){}
-	
-	public function getCancell($order_id){}
-	public function postCancell(){}
-	
 
+	// Route::(order/create)
+	public function getCreate()
+	{
+		return View::make('orders.create');
+	}
+	public function postCreate(){}
+
+	
+	// Route::(order/cancell)
+	public function getCancell($order_id)
+	{
+		return View::make('orders.create');
+	}
+	public function postCancell(){}
 }
