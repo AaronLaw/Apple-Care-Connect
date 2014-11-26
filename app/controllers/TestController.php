@@ -1,5 +1,5 @@
 <?php
-use BaseController; // ref: Laravel Code Bright::Controller, P.86
+// use BaseController; // ref: Laravel Code Bright::Controller, P.86
 
 class TestController extends BaseController {
 
