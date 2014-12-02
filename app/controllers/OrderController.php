@@ -166,7 +166,7 @@ class OrderController extends BaseController {
 		// else
 			// show the error msg 
 		$post = Input::all();
-		$baseController = new BaseController; 
+
 		if ($post)
 		{
 			$json = $this->arrayToJSON($post);
@@ -174,7 +174,7 @@ class OrderController extends BaseController {
 			// echo "var_dump($json)";
 			try
 			{
-				$conn = $baseController->connect(); 
+				$conn = $this->connect(); 
 				if (!$conn)
 				{
 					throw new Exception('Cannot connect to API server');
