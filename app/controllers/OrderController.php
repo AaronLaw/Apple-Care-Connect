@@ -92,7 +92,7 @@ class OrderController extends BaseController {
 		$intendedArray = array( // create an multi-dimension array preparing for the intended JSON
 	            	"requestContext" => array(
 	 			// "shipTo"			=> $array['shipTo'],
-	    //         		"timeZone"			=> $array['timeZone'],
+	 			// "timeZone"			=> $array['timeZone'],
 	 			// "langCode"			=> $array['langCode'],
 	 			"shipTo"			=> "0000863349",
 	            		"timeZone"			=> "-480",
@@ -118,12 +118,12 @@ class OrderController extends BaseController {
 	 			//  "stateCode"		=> $array["stateCode"], 
 	            		//  "countryCode"		=> $array["countryCode"],
 	 			//  "primaryPhoneNumber"	=> $array["primaryPhoneNumber"], 
-	           		//  "zipCode"			=> $array["zipCode"],
+				//  "zipCode"			=> $array["zipCode"],
 				),
-	            	"deviceRequest" => array(
-	 	             	"deviceId"			=> $array["deviceId"],
-	        	    		"secondarySerialNumber"	=> $array["secondarySerialNumber"],
-	            	 	"hardwareDateOfPurchase" => $array["hardwareDateOfPurchase"],
+	 	 	"deviceRequest" => array(
+	 		 	"deviceId"			=> $array["deviceId"],
+				"secondarySerialNumber"	=> $array["secondarySerialNumber"],
+	            		"hardwareDateOfPurchase" => $array["hardwareDateOfPurchase"],
 	            		),
 			);
 
@@ -166,7 +166,7 @@ class OrderController extends BaseController {
 		// else
 			// show the error msg 
 		$post = Input::all();
-		$baseController = new BaseController; 
+		// $baseController = new BaseController; 
 		if ($post)
 		{
 			$json = $this->arrayToJSON($post);
@@ -177,7 +177,8 @@ class OrderController extends BaseController {
 		}
 		else 
 		{
-			return "You should fill in the form again.";
+			// return "You should fill in the form again.";
+			return Redirect::to('order/verify')->with('message', 'You should fill in the form again');
 		}
 	}
 
