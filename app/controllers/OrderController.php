@@ -159,6 +159,7 @@ class OrderController extends BaseController {
 			// convert the POST array to JSON
 			// send to API to verify
 		// else
+			// redirect user to the verify FORM, again
 			// ask user to re-submit
 		// get the response data from API
 		// if the reponse is ok
@@ -174,7 +175,7 @@ class OrderController extends BaseController {
 			// echo "var_dump($json)";
 			try
 			{
-				$conn = $this->connect(); 
+				$conn = $this->connectAPI($this->jointUATAPI['verifyOrder'] ,  $json); 
 				if (!$conn)
 				{
 					throw new Exception('Cannot connect to API server');
