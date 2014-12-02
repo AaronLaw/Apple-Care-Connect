@@ -52,12 +52,12 @@ class OrderController extends BaseController {
 	private function arrayToJSON($array) 
 	{
 		// serialize($array);
-		$array = $this->arrayToIntendedArray($array);
+		$array = $this->intendArrayStructure($array);
 		return json_encode($array);
 		// return $json;
 	}
 	private function JSONToArray($json) {}
-	private function arrayToIntendedArray($array)
+	private function intendArrayStructure($array)
 	{
 		 //            	"requestContext": {
 		 //			"shipTo": "0000863349",
@@ -127,7 +127,7 @@ class OrderController extends BaseController {
 	            		),
 			);
 
-	            	var_dump($intendedArray);
+	            	// var_dump($intendedArray);
 	            	return $intendedArray;
 	}
 	private function verifyOrder($json) { var_dump($json); }
@@ -166,13 +166,24 @@ class OrderController extends BaseController {
 		// else
 			// show the error msg 
 		$post = Input::all();
-		// $baseController = new BaseController; 
+		$baseController = new BaseController; 
 		if ($post)
 		{
 			$json = $this->arrayToJSON($post);
 			// print_r($json);
 			// echo "var_dump($json)";
-			// $conn = $baseController->connect(); 
+			try
+			{
+				$conn = $baseController->connect(); 
+				if (!$conn)
+				{
+					throw new Exception('Cannot connect to API server');
+				}
+			}
+			catch (Exception $e)
+			{
+				echo $e->getMessage();
+			}
 		//	$this->verifyOrder($json);
 		}
 		else 
